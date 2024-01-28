@@ -9,5 +9,6 @@
 *.nlo
 *.synctex.gz
 *.toc
+*(busy)
 
 *.pdf
