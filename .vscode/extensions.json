@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "james-yu.latex-workshop",
-        "wayou.vscode-todo-highlight"
+        "wayou.vscode-todo-highlight",
+        "streetsidesoftware.code-spell-checker"
     ]
 }
