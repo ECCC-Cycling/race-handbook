@@ -17,6 +17,8 @@
 
 \usepackage{kaorefs}
 
+\usepackage{lib/regulation}
+
 \graphicspath{{images/}}
 %\graphicspath{{deep/path/images/}{images/}}
 
@@ -69,7 +71,9 @@
 
 \tableofcontents
 
-% \listoffigures
+\listofregulations
+
+\listoffigures
 
 % \listoftables
 
@@ -625,6 +629,24 @@ regarding medical services.
           Credit: Flyyn Leonard}
 \labfig{standby}
 \end{marginfigure}
+
+% \nameref{regulation:medical}
+
+\begin{regulation}[
+  ref=medical,
+  title=Required Medical Services at ECCC Races,
+  draft=true
+]
+\begin{enumerate}[label=\Alph*.]
+  \item
+    All ECCC races must make every effort to obtain one or more
+    properly licensed, on-duty medical providers (EMT, Advanced EMT, or Paramedic)
+    who will be at the race throughout all events.
+  \item
+    All ECCC races must have at least one person focused on providing first-aid who has some medical or first-aid training.
+    This person may be an on-duty member of a bike patrol program, an off-duty EMT, or someone who has completed a Wilderness First Responder course.
+\end{enumerate}
+\end{regulation}
 
 \subsection{EMS Legal}
 

@@ -1,0 +1,74 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{lib/regulation}[2024/02/17 ECCC Regulations Package]
+
+\usepackage{keyval}
+
+% Each ECCC rule ("regulation") should be specially marked
+% so they are rendered in a way that stands out,
+% they can be referenced from elsewhere in the text,
+% and they can be listed.
+
+%%%% The Regulation Environment %%%%
+% Use the 'regulation' environment to declare the rule.
+%
+% Arguments:
+%   - **title** The primary name of the section
+%   - **label** A shorter version of the title, used in references. Defaults to `title`
+%   - **entry** A shorter version of the title, used in the list of regulations. Defaults to `title`.
+%   - **ref** If provided, a label will be provided as 'regulation:<ref>'
+%
+% Example:
+% \begin{regulation}[]
+
+% NOTE: guide on argument parsing: https://tex.stackexchange.com/a/34314
+\define@key{regulation}{title}{\def\reg@title{#1}}
+\define@key{regulation}{label}{\def\reg@label{#1}}
+\define@key{regulation}{entry}{\def\reg@entry{#1}}
+\define@key{regulation}{ref}{\def\reg@ref{#1}}
+\define@key{regulation}{draft}{\def\reg@draft{#1}}
+
+\newenvironment{regulation}[1][]{%
+  \begingroup
+  \setkeys{regulation}{#1}
+  \refstepcounter{regulation}%
+  \addxcontentsline{lor}{section}[\theregulation]{\reg@title}%
+  \@ifundefined{reg@ref}{}{%
+    \protected@edef\@currentlabelname{\@ifundefined{reg@label}{\reg@title}{\reg@label}} % override the 'label' that will be written by '\label'
+    \label{regulation:\reg@ref}%
+  }
+  \begin{kaobox}[%
+    enhanced,%
+    title={\reg@title~(Regulation~\theregulation\autodot)},%
+    % WATERMARK: only used for 'DRAFT'
+    watermark zoom=1,%
+    watermark color=black,%
+    watermark opacity=.15,%
+    clip watermark,%
+    watermark text={\@ifundefined{reg@draft}{}{\rotatebox{20}{DRAFT}}},%
+    colbacktitle={\@ifundefined{reg@draft}{Yellow!50!White}{Gray!25!White}},%
+    colback={\@ifundefined{reg@draft}{Yellow!25!White}{Gray!25!White}}%
+  ]
+}{
+  \end{kaobox}
+  \endgroup
+}
+
+\newcounter{regulation}
+\counterwithin{regulation}{section}
+\newcommand*{\regulationformat}{%format for the caption
+  Regulation~\theregulation\csname autodot\endcsname}
+% Environment title:
+\newcommand*{\fnum@regulation}{\regulationformat}
+% Keep track of regulations under the 'lor' filename
+\newcommand*{\ext@regulation}{lor}
+
+\addtotoclist[regulations]{lor}
+\newcommand*{\listoflorname}{List of ECCC Regulations}
+
+% Defining TOC format, option 1 (copy the 'list of figure' format):
+\newcommand*{\l@regulation}{\l@figure}
+% Defining TOC format, option 2:
+% \DeclareTOCStyleEntry[level=1,indent=1em,numwidth=1.5em]{tocline}{regulation}
+% \setuptoc{lor}{chapteratlist}
+
+\newcommand*{\listofregulations}{\listoftoc{lor}}

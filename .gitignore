@@ -11,4 +11,10 @@
 *.toc
 *(busy)
 
+# List of Figures (for TOC)
+*.lof
+
+# List of Regulations (for TOC)
+*.lor
+
 *.pdf
