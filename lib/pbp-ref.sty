@@ -1,0 +1,21 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{lib/pbp-ref}[2024/02/18 ECCC Play-By-Play References Package]
+
+\RequirePackage{xstring}
+\RequirePackage{xcolor}
+
+\newcommand*{\colorforpbprole}[1]{%
+  \IfEqCase{#1}{%
+    {role:race_org_team}{\hypersetup{linkcolor=OliveGreen}}%
+    {role:lead_org}{\hypersetup{linkcolor=Green}}%
+    {role:eccc_coordination_team}{\hypersetup{linkcolor=Orange}}%
+    {role:eccc_season_coordinator}{\hypersetup{linkcolor=BurntOrange}}%
+  }[\hypersetup{linkcolor=black}]%
+}
+
+\newcommand\pbproleref[1]{%
+  \begingroup%
+  \colorforpbprole{#1}%
+  \textbf{\nameref{#1}}%
+  \endgroup%
+}

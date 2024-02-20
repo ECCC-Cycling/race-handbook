@@ -18,6 +18,7 @@
 \usepackage{kaorefs}
 
 \usepackage{lib/regulation}
+\usepackage{lib/pbp-ref}
 
 \graphicspath{{images/}}
 %\graphicspath{{deep/path/images/}{images/}}
@@ -88,55 +89,34 @@
 \addpart{Introduction}
 \pagelayout{margin}
 
-% TODO: image is stretched, fix
-\setchapterimage[7cm]{IMG_7884.jpg}
-\setchapterpreamble[u]{\margintoc}
-\chapter{Road Race Play-By-Play}
-\labch{road-play-by-play}
+\input{chapters/road-race-play-by-play/road-play-by-play.tex}
 
-This chapter will walk through the brainstorming,
-planning, setup, execution, and post-event paperwork and tasks for a hypothetical collegiate road race weekend.%
-\footnote{For a similar play-by-play description of a mountain race weekend,
-see \nrefch{mtb-play-by-play}}
+% \section{Brainstorming}
 
-This chapter attempts to be generic, and should be applicable for both
-\nrefsec{hosting:conference} and
-\nrefsec{hosting:team}.
-% TODO: better reference (name first)
+% Before you can start any paperwork or other preparations,
+% you need to have a general idea of where you want to race.
 
-\section{Brainstorming}
+% % TODO: move to MTB play-by-play
+% %This is very easy for most mountain bike races -
+% %you must have a suitable mountain (with elevation) for downhill races,
+% %and Enduro and Dual Slalom races require suitable elevation and specific trails to be successful.
 
-Before you can start any paperwork or other preparations,
-you need to have a general idea of where you want to race.
+% \subsection{Location}
 
-% TODO: move to MTB play-by-play
-%This is very easy for most mountain bike races -
-%you must have a suitable mountain (with elevation) for downhill races,
-%and Enduro and Dual Slalom races require suitable elevation and specific trails to be successful.
+% The rough location of a race (at the scale of county, or rough area of a state)
+% is often an important decision.
 
-\subsection{Location}
+% Consider the following:
 
-The rough location of a race (at the scale of county, or rough area of a state)
-is often an important decision.
+% \begin{enumerate}
+%   \item Distance for collegiate students
+%   \item Non-collegiate race audience
+%   \item Local teams that could host or otherwise contribute to the race
+%   \item If lodging is available nearby
+% \end{enumerate}
 
-Consider the following:
-
-\begin{enumerate}
-  \item Distance for collegiate students
-  \item Non-collegiate race audience
-  \item Local teams that could host or otherwise contribute to the race
-  \item If lodging is available nearby
-\end{enumerate}
-
-\subsection{Course Design}
-\index{course design}
-
-\section{Planning and Paperwork}
-
-After determining a general location of the race,
-there are a large number of decisions to make,
-services to hire,
-and paperwork to complete.
+% \subsection{Course Design}
+% \index{course design}
 
 \section{Course Preparation}
 
@@ -412,6 +392,9 @@ providing coaching and support to any riders who need it.
 \setchapterpreamble[u]{\margintoc}
 \chapter{MTB Race Play-By-Play}
 \labch{mtb-play-by-play}
+
+% TODO: create section similar to Road Race Play-by-Play
+% First section: brainstorming
 
 \pagelayout{wide}
 \addpart{Regulations}
@@ -722,6 +705,18 @@ You will need the following officiating resources:
 \chapter{Roles}
 \labch{roles}
 
+\section{Race Organizing Team}
+\label{role:race_org_team}
+
+\subsection{Race Lead Organizer}
+\label{role:lead_org}
+
+\section{Race Operations Team}
+\label{role:race_ops_team}
+
+\section{ECCC Season Coordination Team}
+\label{role:eccc_coordination_team}
+
 \pagelayout{wide}
 \addpart{Participant Guide}
 \pagelayout{margin}
@@ -839,6 +834,7 @@ calls and informs you that they are unavailable, because they must attend an eme
 
 \setchapterpreamble[u]{\margintoc}
 \chapter{Example Event Budget}
+\labch{event_budget}
 
 \setchapterpreamble[u]{\margintoc}
 \chapter{Road Marshalling Guide}
