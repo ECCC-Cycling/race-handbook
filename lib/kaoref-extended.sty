@@ -1,0 +1,6 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{lib/kaoref-extended}[2024/02/21 Extended Kaobook References]
+
+\newcommand{\nfirstrefsec}[1]{\nameref{sec:#1} (\hyperref[sec:#1]{\sectionname\xspace\ref{sec:#1}})}
+
+\newcommand{\pgrefsubsec}[1]{\hyperref[subsec:#1]{\subsectionname\xspace\ref{subsec:#1} \vpageref{subsec:#1}}}
